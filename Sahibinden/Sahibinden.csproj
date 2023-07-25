@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <None Remove="Data\" />
+    <None Remove="Data\Models\" />
+    <None Remove="Repository\" />
+    <None Remove="Views\Category\" />
+    <None Remove="Views\Car\" />
+    <None Remove="Views\Chart\" />
+    <None Remove="Views\Login\" />
+    <None Remove="Views\Site\" />
+    <None Remove="ViewComponents\" />
+    <None Remove="Views\Site\Components\" />
+    <None Remove="Views\Site\Components\CategoryGetList\" />
+    <None Remove="Views\Site\Components\FoodGetList\" />
+    <None Remove="Views\Site\Components\FoodListByCategory\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Data\Models\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Views\Category\" />
+    <Folder Include="Views\Car\" />
+    <Folder Include="Views\Chart\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="Views\Site\" />
+    <Folder Include="ViewComponents\" />
+    <Folder Include="Views\Site\Components\" />
+    <Folder Include="Views\Site\Components\CategoryGetList\" />
+    <Folder Include="Views\Site\Components\FoodGetList\" />
+    <Folder Include="Views\Site\Components\FoodListByCategory\" />
+    <Folder Include="wwwroot\resimler\" />
+    <Folder Include="wwwroot\resim\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql" Version="7.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\resimler\" />
+    <Content Remove="wwwroot\resim\" />
+  </ItemGroup>
+</Project>

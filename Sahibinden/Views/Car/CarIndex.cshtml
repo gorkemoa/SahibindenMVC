@@ -1,0 +1,48 @@
+﻿@using X.PagedList;
+@using X.PagedList.Web.Common;
+@using X.PagedList.Mvc.Core;
+
+
+@model IPagedList<Sahibinden.Data.Models.Car>
+
+<div class="container">
+    <h2>Car List</h2>
+    <br />
+    @using (Html.BeginForm())
+    {
+        <p>
+            Food Name :@Html.TextBox("search")
+            <input type="submit" value="find" />
+        </p>
+
+    }
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Car Name</th>
+            <th>Car Description</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Category Name</th>
+            <th>Delete</th>
+            <th>Update</th>
+            <th>Details</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.CarId </th>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Price</td>
+                <td>@item.Stock</td>
+                <td>@item.Category.CategoryName</td>
+                <td><a href="/Car/DeleteCar/@item.CarId" class="btn btn-danger">Delete</a>
+                <td><a href="/Car/GetCar/@item.CarId" class="btn btn-success">Update</a>
+                <td><a href="#" class="btn btn-info">Details</a>
+            </tr>
+        }
+    </table>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("CarIndex", new { page }))
+    <a href="/Car/AddCar/" class="btn btn-success">New Car Add</a>
+    </div>
